@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
+    <title>Tablero de ajedrez</title>
+</head>
+<body>
+    <h1 style="color: {{color}}; background-color:{{background}}">*** Checkborard***</h1>
+    <div>
+        {% for i in range(0,fila): %}
+            <div class="fila">
+                {% if i%2==0 %}
+                    {% for j in range(0,columna): %}
+                        {% if j%2==0 %}
+                            <div class="cuadrado" style="background-color:{{background}}"></div>
+                        {% else %}
+                            <div class="cuadrado" style="background-color:{{color}}"></div>
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    {% for j in range(0,columna): %}
+                        {% if j%2==0 %}
+                            <div class="cuadrado" style="background-color:{{color}}"></div>
+                        {% else %}
+                            <div class="cuadrado" style="background-color:{{background}}"></div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
